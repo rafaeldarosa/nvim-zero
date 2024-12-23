@@ -1,0 +1,5 @@
+require("config.user.options")
+require("config.user.lazy")
+require("config.user.keymaps")
+require("config.user.configs-and-setups")
+require("config.user.nvim-cmp")
