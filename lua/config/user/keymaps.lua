@@ -39,6 +39,20 @@ end)
 -- Exit insert mode fast
 vim.keymap.set("i", "jk", "<Esc>", {})
 
+vim.keymap.set("i", "kj", function()
+  -- "Write" saves regardless of whether the buffer has been modified or not
+  -- vim.cmd("write")
+  -- "Update" saves only if the buffer has been modified since the last save
+  -- Suggested in reddit by user @SeoCamo
+  vim.cmd("update")
+  -- Move to the right
+  vim.cmd("normal l")
+  -- Switch back to command mode after saving
+  vim.cmd("stopinsert")
+  -- Print the "File saved" message and the file path
+  print("FILE SAVED: " .. vim.fn.expand("%:p"))
+end, { desc = "Write current file and exit insert mode" })
+
 --Neovide copy paste
 vim.keymap.set("v", "<D-c>", '"+y', { silent = true })
 vim.keymap.set("i", "<D-v>", '<C-o>"+p', { silent = true })

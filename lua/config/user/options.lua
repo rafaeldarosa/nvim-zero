@@ -11,7 +11,7 @@ vim.opt.smartindent = true
 vim.opt.breakindent = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes:1"
 vim.opt.clipboard = "unnamed,unnamedplus"
 vim.opt.cursorline = false
 vim.opt.scrolloff = 8
@@ -19,7 +19,7 @@ vim.opt.autoindent = true
 
 -- Set highlight on search
 vim.opt.hlsearch = false
--- Make line numbers default
+-- Make ine numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true
 -- Enable mouse mode

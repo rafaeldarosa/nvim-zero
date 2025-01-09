@@ -1,4 +1,5 @@
 return {
+  -- add blink.compat
   {
     'saghen/blink.compat',
     -- use the latest release, via version = '*', if you also use the latest release for blink.cmp
@@ -6,14 +7,26 @@ return {
     -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
     lazy = true,
     -- make sure to set opts so that lazy.nvim calls blink.compat's setup
-    opts = {},
+    opts = {
+      enabled_events = true,
+    },
   },
+
   {
     'saghen/blink.cmp',
+    enabled = true,
     -- optional: provides snippets for the snippet source
     dependencies = {
       'rafamadriz/friendly-snippets',
-      { "codeium.nvim" },
+      -- "zbirenbaum/copilot.lua",
+      -- { 'giuxtaposition/blink-cmp-copilot' },
+      { "saghen/blink.compat", opts = { impersonate_nvim_cmp = true } },
+      {
+        "Exafunction/codeium.nvim",
+        cmd = "Codeium",
+        build = ":Codeium Auth",
+        opts = { virtual_text = { enabled = true } },
+      },
       {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files
@@ -26,6 +39,8 @@ return {
         },
       },
     },
+
+    event = "BufReadPre",
 
     -- use a release tag to download pre-built binaries
     version = '*',
@@ -53,21 +68,49 @@ return {
         nerd_font_variant = 'mono'
       },
       sources = {
-        default = { 'lazydev', 'codeium_blink', 'lsp', 'path', 'snippets', 'buffer' },
+        default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'codeium' },
 
         providers = {
           lazydev = {
             name = "lazydev",
             module = "lazydev.integrations.blink",
-            score_offset = 100, -- show at a higher priority than lsp
+            score_offset = 1000, -- show at a higher priority than lsp
           },
-          codeium_blink = {
-            name = 'codeium', -- IMPORTANT: use the same name as you would for nvim-cmp
-            module = 'blink.compat.source',
+
+          -- copilot = {
+          --   name = "copilot",
+          --   module = "blink-cmp-copilot",
+          --   score_offset = -1000,
+          --   async = true,
+          -- },
+
+          codeium = {
+            name = "codeium", -- IMPORTANT: use the same name as you would for nvim-cmp
+            module = "blink.compat.source",
+
+            -- all blink.cmp source config options work as normal:
+            --score_offset = -3,
+
+            opts = {
+              -- options passed to the completion source
+              -- equivalent to `option` field of nvim-cmp source config
+
+              cache_digraphs_on_start = true,
+            },
           },
+
         },
       },
       signature = { enabled = true }
     },
-  }
+
+    trigger = {
+      completion = {
+        keyword_range = "full", -- full|prefix
+      },
+    },
+    highlight = {
+      use_nvim_cmp_as_default = true,
+    },
+  },
 }
