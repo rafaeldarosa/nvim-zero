@@ -6,6 +6,9 @@ return {
   opts = {
     providers = {
       codeium = {
+        enabled = false,
+      },
+      copilot = {
         enabled = true,
       },
     },
@@ -20,9 +23,17 @@ return {
     --- The below dependencies are optional,
     { "hrsh7th/nvim-cmp", enabled = false }, -- autocompletion for avante commands and mentions
     "nvim-tree/nvim-web-devicons",           -- or echasnovski/mini.icons
-    -- "zbirenbaum/copilot.lua",      -- for providers='copilot'
+    {
+      "zbirenbaum/copilot.lua",
+      cmd = "Copilot",
+      event = "InsertEnter",
+      config = function()
+        require("copilot").setup({})
+      end,
+    },
     {
       "Exafunction/codeium.nvim",
+      enabled = false,
       cmd = "Codeium",
       build = ":Codeium Auth",
       opts = { virtual_text = { enabled = true } },
