@@ -20,6 +20,7 @@ return {
       'rafamadriz/friendly-snippets',
       -- "zbirenbaum/copilot.lua",
       -- { 'giuxtaposition/blink-cmp-copilot' },
+      'Kaiser-Yang/blink-cmp-avante',
       { "saghen/blink.compat", opts = { impersonate_nvim_cmp = true } },
       {
         "Exafunction/codeium.nvim",
@@ -68,9 +69,16 @@ return {
         nerd_font_variant = 'mono'
       },
       sources = {
-        default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'codeium' },
+        default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
 
         providers = {
+          avante = {
+            module = 'blink-cmp-avante',
+            name = 'Avante',
+            opts = {
+              -- options for blink-cmp-avante
+            }
+          },
           lazydev = {
             name = "lazydev",
             module = "lazydev.integrations.blink",
@@ -84,21 +92,21 @@ return {
           --   async = true,
           -- },
 
-          codeium = {
-            name = "codeium", -- IMPORTANT: use the same name as you would for nvim-cmp
-            module = "blink.compat.source",
-
-            -- all blink.cmp source config options work as normal:
-            --score_offset = -3,
-
-            opts = {
-              -- options passed to the completion source
-              -- equivalent to `option` field of nvim-cmp source config
-
-              cache_digraphs_on_start = true,
-            },
-          },
-
+          -- codeium = {
+          --   name = "codeium", -- IMPORTANT: use the same name as you would for nvim-cmp
+          --   module = "blink.compat.source",
+          --
+          --   -- all blink.cmp source config options work as normal:
+          --   --score_offset = -3,
+          --
+          --   opts = {
+          --     -- options passed to the completion source
+          --     -- equivalent to `option` field of nvim-cmp source config
+          --
+          --     cache_digraphs_on_start = true,
+          --   },
+          -- },
+          --
         },
       },
       signature = { enabled = true }

@@ -9,7 +9,7 @@ return {
         enabled = false,
       },
       copilot = {
-        enabled = true,
+        enabled = false,
       },
     },
   },
@@ -25,6 +25,7 @@ return {
     "nvim-tree/nvim-web-devicons",           -- or echasnovski/mini.icons
     {
       "zbirenbaum/copilot.lua",
+      enabled = false,
       cmd = "Copilot",
       event = "InsertEnter",
       config = function()
@@ -33,7 +34,6 @@ return {
     },
     {
       "Exafunction/codeium.nvim",
-      enabled = false,
       cmd = "Codeium",
       build = ":Codeium Auth",
       opts = { virtual_text = { enabled = true } },
