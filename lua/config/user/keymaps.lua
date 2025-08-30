@@ -93,12 +93,6 @@ vim.keymap.set("n", "<leader>bo", "<cmd>:BufferLineCloseOthers<CR>", { silent = 
 -- Oil
 vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
 
--- Codeium
---TODO: test codeium options
---vim.keymap.set("n", "<leader>]", require("codeium.virtual_text").complete(), { silent = true })
--- Codeium command to toggle codeium
-vim.keymap.set("n", "<leader>cc", "<cmd>:Codeium Chat<CR>", { silent = true })
-
 -- Todo comments
 vim.keymap.set("n", "<leader>td", "<cmd>:TodoTelescope keywords=TODO,FIX<CR>", { desc = "Open Todo Telescope" })
 

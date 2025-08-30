@@ -5,8 +5,6 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "buffer" },
     { name = "path" },
-    -- { name = "codeium" },
-    -- add other sources you want here
-  }),
-  -- rest of your cmp configuration...
+    -- { name = "codeium" }
+  })
 })
