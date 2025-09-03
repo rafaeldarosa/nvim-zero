@@ -13,7 +13,8 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.signcolumn = "yes:1"
 vim.opt.clipboard = "unnamed,unnamedplus"
-vim.opt.cursorline = false
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "both"
 vim.opt.scrolloff = 8
 vim.opt.autoindent = true
 
