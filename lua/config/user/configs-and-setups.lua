@@ -172,3 +172,19 @@ end, { desc = "[/] Fuzzily search in current buffer" })
 -- 		},
 -- 	})
 -- end, 0)
+
+require("claudecode").setup({
+  terminal = {
+    snacks_win_opts = {
+      position = "float",
+      width = 0.6,
+      height = 0.6,
+      border = "double",
+      backdrop = 80,
+      keys = {
+        claude_hide = { "<Esc>", function(self) self:hide() end, mode = "t", desc = "Hide" },
+        claude_close = { "q", "close", mode = "n", desc = "Close" },
+      },
+    },
+  },
+})

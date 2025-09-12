@@ -61,6 +61,8 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+
+  astro = { filetypes = { "astro" } }
 }
 
 local mason_lspconfig = require("mason-lspconfig")
