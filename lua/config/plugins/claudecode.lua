@@ -4,7 +4,7 @@ return {
     dependencies = { "folke/snacks.nvim" },
     -- Configure with defaults (spawns Claude Code CLI in a terminal split)
     opts = {
-      terminal_cmd = "/home/rafael/.local/bin/claude",
+      terminal_cmd = "/home/rafael/.local/share/nvm/v22.19.0/bin/claude",
     },
     config = true,
     -- Use <leader>l for Claude Code and provide which-key friendly labels
