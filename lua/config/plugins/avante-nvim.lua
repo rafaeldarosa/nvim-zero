@@ -11,11 +11,12 @@ return {
     provider = "ollama",
     providers = {
       ollama = {
+        enabled = false,
         endpoint = "http://localhost:11434",
         model = "codellama",
       },
       copilot = {
-        enabled = false,
+        enabled = true,
       },
     },
     -- -- add any opts here

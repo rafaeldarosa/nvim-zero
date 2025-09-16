@@ -113,3 +113,5 @@ vim.keymap.set("n", "<leader>st", function()
   vim.cmd.wincmd("J")
   vim.api.nvim_win_set_height(0, 10)
 end)
+--
+-- alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mode()end, 100)"'
