@@ -51,18 +51,43 @@ require("mason-lspconfig").setup()
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 local servers = {
-  intelephense = { filetypes = { "php" } },
-  ts_ls = {},
-  html = { filetypes = { "html", "twig", "hbs" } },
+  intelephense = {
+    filetypes = { "php" },
+  },
+  ts_ls = {
+    root_dir = function(fname)
+      local util = require("lspconfig.util")
+      return util.root_pattern(
+        "tsconfig.json",
+        "jsconfig.json",
+        "package.json",
+        "pnpm-workspace.yaml",
+        "package-lock.json",
+        "yarn.lock",
+        "pnpm-lock.yaml",
+        "bun.lockb",
+        "bun.lock"
+      )(fname)
+        or util.find_node_modules_ancestor(fname)
+        or util.find_git_ancestor(fname)
+    end,
+  },
+  html = {
+    filetypes = { "html", "twig", "hbs" },
+  },
 
   lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
+    settings = {
+      Lua = {
+        workspace = { checkThirdParty = false },
+        telemetry = { enable = false },
+      },
     },
   },
 
-  astro = { filetypes = { "astro" } }
+  astro = {
+    filetypes = { "astro" },
+  },
 }
 
 local mason_lspconfig = require("mason-lspconfig")
@@ -73,11 +98,11 @@ mason_lspconfig.setup({
 })
 
 -- Setup each server
-for server_name in pairs(servers) do
-  require("lspconfig")[server_name].setup({
+for server_name, server_opts in pairs(servers) do
+  local opts = vim.tbl_deep_extend("force", {
     capabilities = capabilities,
     on_attach = on_attach,
-    settings = servers[server_name],
-    filetypes = (servers[server_name] or {}).filetypes,
-  })
+  }, server_opts)
+
+  require("lspconfig")[server_name].setup(opts)
 end
