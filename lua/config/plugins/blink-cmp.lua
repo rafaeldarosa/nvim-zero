@@ -47,11 +47,45 @@ return {
       -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = { preset = 'default' },
 
-      appearance = {
-        -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-        -- Adjusts spacing to ensure icons are aligned
-        nerd_font_variant = 'mono'
-      },
+       appearance = {
+         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+         -- Adjusts spacing to ensure icons are aligned
+         nerd_font_variant = 'mono',
+         -- Blink does not expose its default kind icons so you must copy them all (or set your custom ones) and add Copilot
+         kind_icons = {
+           Copilot = "",
+           Text = '󰉿',
+           Method = '󰊕',
+           Function = '󰊕',
+           Constructor = '󱡠',
+
+           Field = '󰜢',
+           Variable = '󰆦',
+           Property = '󰖷',
+
+           Class = '󱡠',
+           Interface = '󱡠',
+           Struct = '󱡠',
+           Module = '󰅩',
+
+           Unit = '󰪚',
+           Value = '󰦨',
+           Enum = '󰦨',
+           EnumMember = '󰦨',
+
+           Keyword = '󰻾',
+           Constant = '󰏿',
+
+           Snippet = '󱄽',
+           Color = '󰏘',
+           File = '󰈔',
+           Reference = '󰬲',
+           Folder = '󰉋',
+           Event = '󱐋',
+           Operator = '󰪚',
+           TypeParameter = '󰬛',
+         },
+       },
 
       -- (Default) Only show the documentation popup when manually triggered
       completion = { documentation = { auto_show = false } },
@@ -77,42 +111,7 @@ return {
             end,
           },
         },
-        appearance = {
-          -- Blink does not expose its default kind icons so you must copy them all (or set your custom ones) and add Copilot
-          kind_icons = {
-            Copilot = "",
-            Text = '󰉿',
-            Method = '󰊕',
-            Function = '󰊕',
-            Constructor = '󰒓',
 
-            Field = '󰜢',
-            Variable = '󰆦',
-            Property = '󰖷',
-
-            Class = '󱡠',
-            Interface = '󱡠',
-            Struct = '󱡠',
-            Module = '󰅩',
-
-            Unit = '󰪚',
-            Value = '󰦨',
-            Enum = '󰦨',
-            EnumMember = '󰦨',
-
-            Keyword = '󰻾',
-            Constant = '󰏿',
-
-            Snippet = '󱄽',
-            Color = '󰏘',
-            File = '󰈔',
-            Reference = '󰬲',
-            Folder = '󰉋',
-            Event = '󱐋',
-            Operator = '󰪚',
-            TypeParameter = '󰬛',
-          },
-        },
       },
 
       -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
