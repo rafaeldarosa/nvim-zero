@@ -50,9 +50,21 @@ require("lazy").setup({
       },
     },
   },
+  rocks = {
+    enabled = true,
+    hererocks = false, -- Use system luarocks instead of hererocks
+  },
 
   -- Detect tabstop and shiftwidth automatically
   "tpope/vim-sleuth",
+
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1000,
+    opts = {
+      rocks = { "nome-do-pacote-ou-lista" }, -- lista de rocks Lua a instalar automaticamente
+    },
+  },
 
   -- Useful plugin to show you pending keybinds.
   {

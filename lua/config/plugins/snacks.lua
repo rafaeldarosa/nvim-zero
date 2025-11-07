@@ -6,13 +6,13 @@ return {
     -- WSL-specific configurations
     bigfile = { enabled = true },
     dashboard = { enabled = true },
-    explorer = { enabled = false }, -- Often problematic in WSL
+    explorer = { enabled = true }, -- Often problematic in WSL
     image = { 
       enabled = true,
       -- WSL graphics support
-      backend = "kitty",
+      backend = "wezterm",
     },
-    input = { enabled = false }, -- Can be disabled if not needed
+    input = { enabled = true }, -- Can be disabled if not needed
     
     -- Terminal configurations for WSL
     terminal = {
