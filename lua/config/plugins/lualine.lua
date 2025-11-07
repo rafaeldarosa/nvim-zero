@@ -55,6 +55,7 @@ return {
       options = {
         --- @usage 'rose-pine' | 'rose-pine-alt'
         -- theme = 'rose-pine',
+        theme = "catppuccin",
         icons_enabled = true,
         component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
@@ -71,6 +72,7 @@ return {
           winbar = 1000,
         }
       },
+      auto_integrations = true,
       sections = sections,
       inactive_sections = {
         lualine_a = {},

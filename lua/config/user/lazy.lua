@@ -97,7 +97,7 @@ require("lazy").setup({
 
   -- "gc" to comment visual regions/lines
   { "numToStr/Comment.nvim",  opts = {} },
-
+ 
   --disable mini.pairs
   { "echasnovski/mini.pairs", enabled = false },
 
