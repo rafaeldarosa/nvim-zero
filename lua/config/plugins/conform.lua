@@ -1,15 +1,20 @@
 return {
   "stevearc/conform.nvim",
   opts = {
-    lua = { "stylua" },
-    -- Conform will run multiple formatters sequentially
     -- Map of filetype to formatters
     formatters_by_ft = {
-      ["javascript"] = { "prettierd" },
-      ["javascriptreact"] = { "prettierd" },
-      ["typescript"] = { "prettierd" },
-      ["typescriptreact"] = { "prettierd" },
+      ["lua"] = { "stylua" },
+      ["javascript"] = { "prettierd", "prettier", stop_after_first = true },
+      ["javascriptreact"] = { "prettierd", "prettier", stop_after_first = true },
+      ["typescript"] = { "prettierd", "prettier", stop_after_first = true },
+      ["typescriptreact"] = { "prettierd", "prettier", stop_after_first = true },
       ["css"] = { "prettier" },
+      ["html"] = { "prettier" },
+      ["json"] = { "prettier" },
+      ["jsonc"] = { "prettier" },
+      ["yaml"] = { "prettier" },
+      ["markdown"] = { "prettier" },
+      ["graphql"] = { "prettier" },
     },
     -- Set this to change the default values when calling conform.format()
     -- This will also affect the default values for format_on_save/format_after_save
